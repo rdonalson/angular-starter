@@ -9,4 +9,11 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected title = 'angular-starter';
+
+  checkError() {
+    const err = 10;
+    //var err = 10;
+
+    return err;
+  }
 }

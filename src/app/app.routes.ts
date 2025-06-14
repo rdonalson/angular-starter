@@ -1,44 +1,33 @@
 import { Routes } from '@angular/router';
 
 import { Home } from './features/home/home';
-import { Login } from './features/login/login';
-import { Signup } from './features/signup/signup';
 import { NotFound } from './features/not-found/not-found';
-import { About } from './features/about/about';
-import { Contact } from './features/contact/contact';
-
-import { Experience } from './features/about/experience/experience';
-import { Skill } from './features/about/skill/skill';
-
-import { Mailing } from './features/contact/mailing/mailing';
-import { Mapping } from './features/contact/mapping/mapping';
-import { Website } from './features/contact/website/website';
 
 export const routes: Routes = [
-  { path: '', component: Home },
+  { path: '', component: Home, },
 
-  { path: 'login', component: Login },
-  { path: 'signup', component: Signup },
+  {
+    path: 'login',
+    loadComponent: () => import(`./features/login/login`)
+      .then(mod => mod.Login)
+  },
+  {
+    path: 'signup',
+    loadComponent: () => import(`./features/signup/signup`)
+      .then(mod => mod.Signup)
+  },
+
+  {
+    path: 'contact',
+    loadChildren: () => import(`./features/contact/contact.routes`)
+      .then(routes => routes.routes)
+  },
 
   {
     path: 'about',
-    component: About,
-    children: [
-      { path: '', component: Experience },
-      { path: 'experience', component: Experience },
-      { path: 'skill', component: Skill },
-    ],
-  },
-  {
-    path: 'contact',
-    component: Contact,
-    children: [
-      { path: '', component: Mailing },
-      { path: 'mailing', component: Mailing },
-      { path: 'mapping', component: Mapping },
-      { path: 'website', component: Website },
-    ],
+    loadChildren: () => import('./features/about/about.routes')
+    .then(routes => routes.routes)
   },
 
-  { path: '**', component: NotFound },
+  { path: '**', component: NotFound }
 ];

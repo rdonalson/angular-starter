@@ -4,12 +4,10 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [CommonModule, RouterLink, RouterOutlet],
   templateUrl: './app.html',
-  styleUrls: ['./app.css']
+  styleUrl: './app.css'
 })
-
 export class App implements OnInit {
   title = 'angular-routing';
   footerUrl = 'https://www.ganatan.com';
@@ -25,5 +23,4 @@ export class App implements OnInit {
       }
     }
   }
-
 }

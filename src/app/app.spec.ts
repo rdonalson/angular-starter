@@ -1,16 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 import { App } from './app';
-import { RouterTestingModule } from '@angular/router/testing';
+import { ActivatedRoute } from '@angular/router';
 
-describe('AppComponent', () => {
+describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        App,
-        RouterTestingModule.withRoutes([
-          { path: 'test-route', component: App },
-        ]),
-      ],
+      imports: [App],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {}
+        }
+      ]
     }).compileComponents();
   });
 
@@ -20,7 +21,7 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'angular-routing' title`, () => {
+  it('should render title', () => {
     const fixture = TestBed.createComponent(App);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('angular-routing');

@@ -2,25 +2,38 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
+import { Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [CommonModule, RouterLink, RouterOutlet],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
+
 export class App implements OnInit {
   title = 'angular-routing';
   footerUrl = 'https://www.ganatan.com';
   footerLink = 'www.ganatan.com';
+
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: object) {
+  }
+
   ngOnInit(): void {
 
-    const navMain = document.getElementById('navbarCollapse');
-    if (navMain) {
-      navMain.onclick = function onClick() {
-        if (navMain) {
-          navMain.classList.remove("show");
+    if (isPlatformBrowser(this.platformId)) {
+      const navMain = document.getElementById('navbarCollapse');
+      if (navMain) {
+        navMain.onclick = function onClick() {
+          if (navMain) {
+            navMain.classList.remove("show");
+          }
         }
       }
     }
   }
+
 }

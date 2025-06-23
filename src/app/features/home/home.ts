@@ -10,7 +10,8 @@ import { SeoService } from '../../core/services/seo/seo.service';
   selector: 'app-home',
   imports: [CommonModule, RouterLink],
   templateUrl: './home.html',
-  styleUrl: './home.css'
+  styleUrl: './home.css',
+  providers: [SeoService]
 })
 export class Home {
   name = environment.application.name;

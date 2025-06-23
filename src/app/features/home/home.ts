@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { environment } from '../../../environments/environment';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
+import { environment } from '../../../environments/environment';
 import { Feature } from './feature';
+import { SeoService } from '../../core/services/seo/seo.service';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,18 @@ export class Home {
 
   features: Feature[];
 
-  constructor() {
+  constructor(private seoService: SeoService) {
+
+    const content =
+      'This application was developed with ' + this.version + ' and ' + this.bootstrap +
+      ' It applies Routing, Lazy loading and Progressive Web App (PWA)';
+
+    const title = 'angular-seo Title : Home Page';
+
+    this.seoService.setMetaDescription(content);
+    this.seoService.setMetaTitle(title);
+
+
     this.features =
       [
         {

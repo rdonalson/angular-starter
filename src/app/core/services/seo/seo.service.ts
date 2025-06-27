@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Injectable({
@@ -6,11 +6,8 @@ import { Meta, Title } from '@angular/platform-browser';
 })
 export class SeoService {
 
-  constructor(
-    private meta: Meta,
-    private titleService: Title) {
-
-  }
+  private meta = inject(Meta);
+  private titleService = inject(Title);
 
   public setMetaDescription(content: string) {
 

@@ -33,9 +33,10 @@ module.exports = tseslint.config(
       "@angular-eslint/component-class-suffix": [
         "error",
         {
-          suffixes: ["","Component"] 
+          suffixes: ["","Component"]
         }
       ],
+      "@typescript-eslint/no-explicit-any": "off",
       "no-undefined": "error",
       "no-var": "error",
       "prefer-const": "error",
@@ -43,7 +44,7 @@ module.exports = tseslint.config(
       "id-length": "error",
       "newline-before-return": "error",
       "space-before-blocks": "error",
-      "no-alert": "error"             
+      "no-alert": "error"
     },
   },
   {

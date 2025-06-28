@@ -1,0 +1,22 @@
+<div class="container bd-layout">
+  <div class="bd-sidebar">
+    <ul class="list-unstyled p-2">
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+          data-bs-target="#reactive-collapse" aria-expanded="true" aria-current="true">
+          Example Items
+        </button>
+        <div class="collapse show" id="reactive-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a routerLink="/items/httpclient" class="link-dark rounded">Http-Client</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="row">
+    <div class="col p-4">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

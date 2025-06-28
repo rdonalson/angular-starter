@@ -46,6 +46,14 @@ export const routes: Routes = [
       import(`./features/signup/signup`).then((mod) => mod.Signup),
   },
 
+  { //C:\Users\rickd\source\repos\angular-starter\src\app\features\example-items\items.routes.ts
+    path: 'items',
+    loadChildren: () =>
+      import(`./features/example-items/items.routes`).then(
+        (routes) => routes.routes
+      ),
+  },
+
   {
     path: 'contact',
     loadChildren: () =>

@@ -70,8 +70,8 @@ export class Home {
         link: 'forms',
       },
       {
-        name: 'Http Client',
-        description: 'Http Client to communicate with a REST API',
+        name: 'Example Items',
+        description: 'Example items to demonstrate various features',
         icon: 'far fa-file-alt',
         link: 'items',
       }
